@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7CA3821B6F840809924CFF9C /* Pods_breakpoint_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1634706BEDC5E2AD3AD639E7 /* Pods_breakpoint_app.framework */; };
+		B5008E1C20FF7A68001C0B58 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5008E1B20FF7A68001C0B58 /* DataService.swift */; };
 		B52B696320FF63B70069ED35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52B696220FF63B70069ED35 /* AppDelegate.swift */; };
 		B52B696520FF63B70069ED35 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52B696420FF63B70069ED35 /* FirstViewController.swift */; };
 		B52B696720FF63B70069ED35 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52B696620FF63B70069ED35 /* SecondViewController.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		1634706BEDC5E2AD3AD639E7 /* Pods_breakpoint_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_breakpoint_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5008E1B20FF7A68001C0B58 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		B52B695F20FF63B70069ED35 /* breakpoint-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "breakpoint-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B52B696220FF63B70069ED35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B52B696420FF63B70069ED35 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 		B52B697A20FF65310069ED35 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B5008E1B20FF7A68001C0B58 /* DataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				B52B696720FF63B70069ED35 /* SecondViewController.swift in Sources */,
 				B52B696320FF63B70069ED35 /* AppDelegate.swift in Sources */,
 				B52B696520FF63B70069ED35 /* FirstViewController.swift in Sources */,
+				B5008E1C20FF7A68001C0B58 /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
