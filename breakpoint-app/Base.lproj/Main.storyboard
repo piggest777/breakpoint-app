@@ -127,7 +127,7 @@
                                     <constraint firstItem="iUV-r6-4Bm" firstAttribute="leading" secondItem="jSE-HG-Qbg" secondAttribute="leading" constant="20" id="zbl-Ju-6FW"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xwJ-aF-RyC">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="xwJ-aF-RyC">
                                 <rect key="frame" x="20" y="110" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="E72-mK-rLs"/>
