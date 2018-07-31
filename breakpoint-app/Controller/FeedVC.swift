@@ -1,4 +1,3 @@
-//
 //  FirstViewController.swift
 //  breakpoint-app
 //
@@ -8,7 +7,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class FeedVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
