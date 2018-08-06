@@ -26,6 +26,7 @@
 		B5795DE82108BD3500E114C3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5795DE72108BD3500E114C3 /* GoogleService-Info.plist */; };
 		B5795DEA2108BE8900E114C3 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5795DE92108BE8900E114C3 /* ShadowView.swift */; };
 		B5795DEC2109206A00E114C3 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5795DEB2109206A00E114C3 /* AuthService.swift */; };
+		B594CC3A2118D688004F5621 /* CreateGroupsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B594CC392118D688004F5621 /* CreateGroupsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		B5795DE72108BD3500E114C3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		B5795DE92108BE8900E114C3 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		B5795DEB2109206A00E114C3 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		B594CC392118D688004F5621 /* CreateGroupsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupsVC.swift; sourceTree = "<group>"; };
 		CA6C8680A43F4BE20A334810 /* Pods-breakpoint-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-breakpoint-app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-breakpoint-app/Pods-breakpoint-app.debug.xcconfig"; sourceTree = "<group>"; };
 		FA817ED9BFEE86DEA8E551F7 /* Pods-breakpoint-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-breakpoint-app.release.xcconfig"; path = "Pods/Target Support Files/Pods-breakpoint-app/Pods-breakpoint-app.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,6 +130,7 @@
 				B5795DE32108B47700E114C3 /* LoginVC.swift */,
 				B50FF4802110EB42000C8C8F /* MeVC.swift */,
 				B50FF4822110F67F000C8C8F /* CreatePostVC.swift */,
+				B594CC392118D688004F5621 /* CreateGroupsVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				B52B696720FF63B70069ED35 /* GroupsVC.swift in Sources */,
 				B5795DE42108B47700E114C3 /* LoginVC.swift in Sources */,
 				B5795DEC2109206A00E114C3 /* AuthService.swift in Sources */,
+				B594CC3A2118D688004F5621 /* CreateGroupsVC.swift in Sources */,
 				B52B696320FF63B70069ED35 /* AppDelegate.swift in Sources */,
 				B5795DEA2108BE8900E114C3 /* ShadowView.swift in Sources */,
 				B50FF4832110F67F000C8C8F /* CreatePostVC.swift in Sources */,
