@@ -473,7 +473,7 @@
         <!--Group FeedVC-->
         <scene sceneID="QJo-9j-m0F">
             <objects>
-                <viewController id="p3P-K0-Tg7" customClass="GroupFeedVC" customModule="breakpoint_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GroupFeedVC" id="p3P-K0-Tg7" customClass="GroupFeedVC" customModule="breakpoint_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5M3-kO-ES6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

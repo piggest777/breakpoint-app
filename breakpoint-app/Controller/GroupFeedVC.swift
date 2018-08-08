@@ -22,9 +22,24 @@ class GroupFeedVC: UIViewController {
     
     @IBOutlet weak var sendBtn: UIButton!
     
+    var group: Group?
+    
+    func initGroupData(forGroup group: Group) {
+        self.group = group
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         sendBtnView.bindToKeyboard()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        groupTitleLbl.text = group?.groupTitle
+        DataService.instance.getEmailsfor(group: group!) { (returnedEmails) in
+            self.membersLbl.text = returnedEmails.joined(separator: ", ")
+        }
+        
     }
     
     @IBAction func backBtnWasPressed(_ sender: Any) {
@@ -38,16 +53,16 @@ class GroupFeedVC: UIViewController {
 
 }
 
-extension GroupFeedVC: UITableViewDelegate, UITableViewDataSource{
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        <#code#>
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
-    }
-}
+//extension GroupFeedVC: UITableViewDelegate, UITableViewDataSource{
+//
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        <#code#>
+//    }
+//
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        <#code#>
+//    }
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        <#code#>
+//    }
+//}
