@@ -8,9 +8,13 @@
 
 import UIKit
 
+
 class GroupsVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    
+    var gruopsArray = [Group]()
+    
     
     
     override func viewDidLoad() {
@@ -18,6 +22,18 @@ class GroupsVC: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+      
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        DataService.instance.REF_GROUPS.observe(.value) { (snapshot) in
+            DataService.instance.getAllGroups { (returnedGroupArray) in
+                self.gruopsArray = returnedGroupArray
+                self.tableView.reloadData()
+            }
+        }
+
     }
     
 }
@@ -28,14 +44,16 @@ extension GroupsVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return gruopsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath)  as? GroupCell else {
             return UITableViewCell()}
         
-        cell.configureCell(title: "evil plans", descripton: "plans to conque world", memberCount: 3)
+        let group = gruopsArray[indexPath.row]
+        
+        cell.configureCell(title: group.groupTitle, descripton: group.groupDescription, memberCount: group.memberCount)
         
         
         return cell
