@@ -20,11 +20,13 @@ class CreatePostVC: UIViewController {
     
     @IBOutlet weak var sendBtn: UIButton!
     
+    @IBOutlet weak var mainView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.delegate = self
-        sendBtn.bindToKeyboard()
+//        sendBtn.bindToKeyboard()
+        mainView.bindToKeyboard()
 
 
     }

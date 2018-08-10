@@ -10,9 +10,13 @@ import Foundation
 import Firebase
 
 let DB_BASE = Database.database().reference()
+public let avatarURL:String = "https://api.adorable.io/avatars/150/"
+
 
 class DataService {
     static let instance = DataService()
+    
+    
     
     private var _REF_BASE = DB_BASE
     private var _REF_USERS = DB_BASE.child("users")
@@ -35,13 +39,17 @@ class DataService {
         return _REF_FEED
     }
     
+
+
+    
     func createDBUser(uid: String, userData: Dictionary<String, Any>) {
         REF_USERS.child(uid).updateChildValues(userData)
     }
     
-    func uploadPost (withMessage message: String, forUID uid: String, withGroupKey gruopKey: String?, sendComplete: @escaping (_ status: Bool) -> ()) {
-        if gruopKey != nil {
-//            send to groups ref
+    func uploadPost (withMessage message: String, forUID uid: String, withGroupKey groupKey: String?, sendComplete: @escaping (_ status: Bool) -> ()) {
+        if groupKey != nil {
+            REF_GROUPS.child(groupKey!).child("messages").childByAutoId().updateChildValues(["content": message, "senderID": uid])
+            sendComplete(true)
         } else {
             REF_FEED.childByAutoId().updateChildValues(["content": message, "senderID": uid])
             sendComplete(true)
@@ -74,6 +82,47 @@ class DataService {
             
             handler(messageArray)
         }
+        
+    }
+    
+    func getAllMessagesFor(desiredGroup: Group, handler: @escaping (_ messagesArray: [Message])->() ){
+        
+        var groupMessageArray = [Message]()
+        
+        REF_GROUPS.child(desiredGroup.key).child("messages").observeSingleEvent(of: .value) { (groupMessageSnapshot) in
+            guard let groupMessageSnapshot = groupMessageSnapshot.children.allObjects as? [DataSnapshot] else {return}
+            
+            for groupMessage in groupMessageSnapshot {
+                let content = groupMessage.childSnapshot(forPath: "content").value as! String
+                let senderId = groupMessage.childSnapshot(forPath: "senderID").value as! String
+                let groupMessage = Message(content: content, senderId: senderId)
+                groupMessageArray.append(groupMessage)
+//                print("the message is \(groupMessage.content)")
+            }
+            handler(groupMessageArray)
+        }
+    }
+    
+    func getAllMessagesForCurrentUser(handler: @escaping (_ messagesArray: [Message])->()) {
+        
+        var messagesArray = [Message]()
+        
+        REF_FEED.observeSingleEvent(of: .value) { (messageSnapshot) in
+            guard let messageSnapshot = messageSnapshot.children.allObjects as? [DataSnapshot] else {return}
+            
+            for message in messageSnapshot {
+                
+                let senderId = message.childSnapshot(forPath: "senderID").value as! String
+                let content = message.childSnapshot(forPath: "content").value as! String
+                
+                if senderId == Auth.auth().currentUser?.uid {
+                    let message = Message(content: content, senderId: senderId)
+                    messagesArray.append(message)
+                }
+                handler(messagesArray)
+            }
+        }
+        
         
     }
     
@@ -161,8 +210,30 @@ class DataService {
         }
 
     }
-    
-    
+}
 
-    
+extension UIImageView {
+    public func imageFromURL(urlString: String) {
+        
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        activityIndicator.frame = CGRect.init(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
+        activityIndicator.startAnimating()
+        if self.image == nil{
+            self.addSubview(activityIndicator)
+        }
+        
+        URLSession.shared.dataTask(with: NSURL(string: urlString)! as URL, completionHandler: { (data, response, error) -> Void in
+            
+            if error != nil {
+                print(error ?? "No Error")
+                return
+            }
+            DispatchQueue.main.async(execute: { () -> Void in
+                let image = UIImage(data: data!)
+                activityIndicator.removeFromSuperview()
+                self.image = image
+            })
+            
+        }).resume()
+    }
 }
